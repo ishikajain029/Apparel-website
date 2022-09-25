@@ -1,13 +1,5 @@
 <?php
-
 session_start();
-
-if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !==true)
-{
-    header("location: login.php");
-}
-
-
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +8,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !==true)
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecommerce website</title>
+    <title>Apparel website</title>
     <link rel="stylesheet" href="style.css">
     
     
@@ -37,7 +29,14 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !==true)
         <li><a href="about.php">About</a></li>
         <li><a href="contact.php">Contact</a></li>
         <li id="lg-bag"><a href="cart.php"><i class="fa fa-shopping-cart fa-2x"></i></a></li>
-        <li><a class="nav-link" href="logout.php">Login</a></li>
+        <li><a class="nav-link logof" href="logout.php"
+        <?php
+if(isset($_SESSION['loggedin']) || $_SESSION['loggedin'] ==true)
+{
+    echo 'style="display:block";';
+} 
+?>
+        >Logout</a></li>
     <img src="xmark-solid.svg" id="close" alt="" height=20px width=20px>
     </ul>
     
@@ -402,7 +401,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !==true)
         <h4>crazy deals</h4>
         <h2>buy 1 get 1 free</h2>
 
-        <!-- <span>The best classic dress is on sale at cara</span> -->
+        
    <button class="white">Learn More</button>
     </div>
     <div class="banner-box banner-box2">
@@ -458,16 +457,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !==true)
         <p><strong>Address>: </strong> 562 wellington Road,Street32,san Francisco</p>
     <p><strong>Phone:</strong>+01 2222 365 /(+91) 01 2345 6789</p>
     <p><strong>Hours:</strong>10:00-18:00,Mon-Sat</p>
-<!-- <div class="follow">
-    <h4>Follow us</h4>
-    <div class="icon">
-        <i class="fab fa-facebook-f"></i>
-        <i class="fab fa-twitter"></i>
-        <i class="fab fa-instagram"></i>
-        <i class="fab fa-pinterest-p"></i>
-        <i class="fab fa-youtube"></i>
 
-    </div> -->
 
 </div>
 </div>

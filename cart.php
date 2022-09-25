@@ -1,3 +1,14 @@
+<?php
+
+session_start();
+
+if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !==true)
+{
+    header("location: login.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,15 +18,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart page</title>
     <link rel="stylesheet" href="style.css">
-<!-- 
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"> -->
+
 
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" /> 
 
 
 
 </head>
-<!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>-->
+
   <script src="https://use.fontawesome.com/6a6bbc7e86.js"></script>   
 
 <body>
@@ -29,15 +39,18 @@
                 <li><a  href="about.php">About</a></li>
                 <li><a  href="contact.php">Contact</a></li>
                 <li><a class="active"  href="cart.php"><i class="fa fa-shopping-cart fa-2x"></i></a></li>
-                <li><a class="nav-link" href="logout.php">Login</a></li>
+                <li><a class="nav-link logof" href="logout.php"
+        <?php
+if(isset($_SESSION['loggedin']) || $_SESSION['loggedin'] ==true)
+{
+    echo 'style="display:block";';
+} 
+?>
+        >Logout</a></li>
                 <img src="xmark-solid.svg" id="close" alt="" height=20px width=20px>
             </ul>
         </div>
-        <!-- <div id="mobile">
-       <a href="cart.html"><i class="fa fa-shopping-cart fa-2x"></i></a>
-       <i id="bar" class="fas fa-outdent"></i>
-
-   </div> -->
+       
    <div id="mobile">
        
        <a href="cart.php" class="color" ><i class="fa fa-shopping-cart fa-2x"></i></a> 
@@ -51,8 +64,8 @@
     </section>
     <section id="page-header" class="about-header">
        
-       <h2 style="color:#e1d0cd ;">#let's_talk</h2>
-        <p style="color:#a8cfcc;">LEAVE A MESSAGE.we love to hear from you</p>
+       <h2 style="color:#e1d0cd ;">#let's_Shop</h2>
+        <p style="color:#a8cfcc;">Enjoy your shoping</p>
         
     </section>
     <section id="cart" class="section-p1">

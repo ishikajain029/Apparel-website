@@ -1,11 +1,11 @@
 <?php
-//This script will handle login
+
 session_start();
 
-// check if the user is already logged in
+
 if(isset($_SESSION['username']))
 {
-    header("location: index.php");
+    header("location: cart.php");
     exit;
 }
 require_once "config.php";
@@ -13,7 +13,7 @@ require_once "config.php";
 $username = $password = "";
 $err = "";
 
-// if request method is post
+
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
     if(empty(trim($_POST['username'])) || empty(trim($_POST['password'])))
     {
@@ -33,7 +33,7 @@ if(empty($err))
     $param_username = $username;
     
     
-    // Try to execute this statement
+   
     if(mysqli_stmt_execute($stmt)){
         mysqli_stmt_store_result($stmt);
         if(mysqli_stmt_num_rows($stmt) == 1)
@@ -43,14 +43,14 @@ if(empty($err))
                     {
                         if(password_verify($password, $hashed_password))
                         {
-                            // this means the password is corrct. Allow user to login
+                            
                             session_start();
                             $_SESSION["username"] = $username;
                             $_SESSION["id"] = $id;
                             $_SESSION["loggedin"] = true;
 
-                            //Redirect user to welcome page
-                            header("location: index.php");
+                            
+                            header("location: cart.php");
                             
                         }
                     }
@@ -69,12 +69,12 @@ if(empty($err))
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
+    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+   
 
     <title>PHP login system!</title>
     <style>
