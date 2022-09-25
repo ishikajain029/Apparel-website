@@ -138,7 +138,7 @@ mysqli_close($conn);
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Username</label>
-      <input type="text" class="form-control" name="username" id="inputEmail4" placeholder="Email">
+      <input type="text" class="form-control" name="username" id="inputEmail4" placeholder="Username">
       <span> <?php echo $username_err; ?></span>
     </div>
     <div class="form-group col-md-6">
